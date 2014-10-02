@@ -1,9 +1,9 @@
 {
     "name": "biberltd/pdf-bundle",
     "type": "symfony-bundle",
-    "description": "Provides API connection to google.",
-    "keywords": ["google", "google api", "google analytics"],
-    "homepage": "http://github.com/biberltd/ExifBundle",
+    "description": "Parses html <> pfd",
+    "keywords": ["pdf", "tcpdf"],
+    "homepage": "http://github.com/biberltd/PdfBundle",
     "license": "MIT",
     "authors": [
         {
