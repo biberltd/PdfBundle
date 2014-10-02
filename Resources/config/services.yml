@@ -1,0 +1,4 @@
+services:
+    biberltd.pdf:
+        class:        BiberLtd\Bundle\PdfBundle\Services\Pdf
+        arguments: []

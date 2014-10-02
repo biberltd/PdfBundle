@@ -1,0 +1,3 @@
+biberltd_pdf:
+    pattern:  /pdf
+    defaults: { _controller: BiberLtdPdfBundle:Default:test }
