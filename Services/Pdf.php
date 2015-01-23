@@ -1,6 +1,8 @@
 <?php
 namespace BiberLtd\Bundle\PdfBundle\Services;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 class Pdf{
     /**
      * @name            indexAction ()
@@ -103,20 +105,30 @@ class Pdf{
      * @author          Can Berkol
      * @author          Said İmamoğlu
      * @since           1.0.2
-     * @version         1.0.2
+     * @version         1.0.3
      *
-     * @uses     \Imagick
+     * @uses            \Imagick
      *
-     * @param    string         $path Source file path
-     * @param    string         $to Target file path
-     * @param    int        $page Which page will be captured
+     * @param           string         $path Source file path
+     * @param           string         $to Target file path
+     * @param           int            $page Which page will be captured
      *
-     * @return  string  $savePath   Path of target file.
+     * @return          string         $savePath   Path of target file.
      */
     public function getPreviewImage($path, $to, $page = 0){
-        $im = new \Imagick($path . '[' . $page . ']');
-        $im->setImageFormat('jpg');
+        if (!class_exists('Imagick')) {
+            exit('Please install imagick module on your environment.');
+        }
+        if (! is_readable($path)) {
+            echo 'file not readable';
+            exit;
+        }
+        echo 'a';exit;
+        $im = new \Imagick($path.'['.$page.']');
 
+        $im = $im->flattenImages();
+        $im->setImageFormat('jpg');
+        $im->setcolorspace(\imagick::COLORSPACE_RGB);
         $im->writeimage($to);
         return $to;
     }
@@ -125,6 +137,11 @@ class Pdf{
 
 /**
  * Change Log:
+ * **************************************
+ * v1.0.3                      Can Berkol
+ * **************************************
+ * U getPreviewImage()
+ *
  * **************************************
  * v1.0.2                      Can Berkol
  * **************************************
