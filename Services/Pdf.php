@@ -1,6 +1,8 @@
 <?php
 namespace BiberLtd\Bundle\PdfBundle\Services;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 class Pdf{
     /**
      * @name            indexAction ()
