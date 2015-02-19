@@ -78,7 +78,22 @@ class Pdf{
         require_once(realpath(dirname(__FILE__)) . '/../src/tcpdf_import.php');
         return new \TCPDF_IMPORT();
     }
+    /**
+     * @name            getNewInstance()
+     *
+     * @author          Can Berkol
+     * @since           1.0.3
+     * @version         1.0.3
+     *
+     * @return          \TCPDF()
+     */
+    public function getNewInstance()
+    {
+        require_once(realpath(dirname(__FILE__)) . '/../src/tcpdf.php');
+        $tcpdf = new \TCPDF();
 
+        return $tcpdf;
+    }
     /**
      * @name            getParser ()
      *
@@ -114,17 +129,30 @@ class Pdf{
      * @return  string  $savePath   Path of target file.
      */
     public function getPreviewImage($path, $to, $page = 0){
-        $im = new \Imagick($path . '[' . $page . ']');
-        $im->setImageFormat('jpg');
+        if (!class_exists('Imagick')) {
+            exit('Please install imagick module on your environment.');
+        }
+        if (! is_readable($path)) {
+            echo $path.' file not readable';
+            exit;
+        }
+        $im = new \Imagick($path.'['.$page.']');
 
+        $im = $im->flattenImages();
+        $im->setImageFormat('jpg');
+        $im->setcolorspace(\imagick::COLORSPACE_RGB);
         $im->writeimage($to);
         return $to;
     }
-
 }
 
 /**
  * Change Log:
+ * **************************************
+ * v1.0.3                      Can Berkol
+ * **************************************
+ * A getNewInstance()
+ *
  * **************************************
  * v1.0.2                      Can Berkol
  * **************************************
