@@ -1,30 +1,32 @@
 {
-    "name": "biberltd/pdf-bundle",
-    "type": "symfony-bundle",
-    "description": "Parses html <> pfd",
-    "keywords": ["pdf", "tcpdf"],
-    "homepage": "http://github.com/biberltd/PdfBundle",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Can Berkol",
-            "email": "can.berkol@biberltd.com"
-        },
-        {
-            "name": "Said İmamoğlu",
-            "email": "said.imamoglu@biberltd.com"
-        }
-    ],
-    "require": {
-        "php": ">=5.3.2",
-        "biberltd/exception-bundle": "~3.1"
+  "name": "biberltd/pdf-bundle",
+  "type": "symfony-bundle",
+  "description": "Parses html <> pfd",
+  "keywords": [
+    "pdf",
+    "tcpdf"
+  ],
+  "homepage": "http://github.com/biberltd/PdfBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Can Berkol",
+      "email": "can.berkol@biberltd.com"
     },
-    "autoload": {
-        "psr-0": {
-            "BiberLtd\\Bundle\\PdfBundle": ""
-        }
-
-    },
-    "minimum-stability": "dev",
-    "target-dir": "BiberLtd/Bundle/PdfBundle/"
+    {
+      "name": "Said İmamoğlu",
+      "email": "said.imamoglu@biberltd.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.2",
+    "biberltd/core-bundle": "~3.3",
+  },
+  "autoload": {
+    "psr-0": {
+      "BiberLtd\\Bundle\\PdfBundle": ""
+    }
+  },
+  "minimum-stability": "dev",
+  "target-dir": "BiberLtd/Bundle/PdfBundle/"
 }
