@@ -20,7 +20,7 @@
   ],
   "require": {
     "php": ">=5.3.2",
-    "biberltd/core-bundle": "~3.3",
+    "biberltd/core-bundle": "~3.3"
   },
   "autoload": {
     "psr-0": {
